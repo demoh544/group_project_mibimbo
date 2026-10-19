@@ -6,7 +6,7 @@
 
 demoh544 - тимлид
 
-bizzare-stackbi 
+bizzare-stack 
 
 NikaCod
 
