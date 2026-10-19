@@ -1,8 +1,5 @@
 # Mibobmo
 ---
-<<<<<<< HEAD
-new change yee
-=======
 new change
 
 AYO CHILLLLLLLL
