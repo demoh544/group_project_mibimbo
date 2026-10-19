@@ -1,5 +1,13 @@
 # Mibobmo
----
-new change
+=======
+Это групповой проект сайта от команды мибомбо
 
-AYO CHILLLLLLLLpush
+В комаду входят 
+
+demoh544 - тимлид
+
+bizzare-stackbi 
+
+NikaCod
+
+Tsuru546
