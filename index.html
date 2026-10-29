@@ -49,3 +49,73 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #c9a96e; }
+        /* HERO */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            color: #e8e8e8;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #c9a96e;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            border: 1px solid #c9a96e;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .btn:hover { background: transparent; color: #c9a96e; }
+        .btn-outline {
+            background: transparent;
+            color: #c9a96e;
+        }
+        .btn-outline:hover { background: #c9a96e; color: #fff; }
+
+        /* SECTIONS */
+        section { padding: 5rem 5%; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+        .section-title .line {
+            width: 60px;
+            height: 2px;
+            background: #c9a96e;
+            margin: 1rem auto;
+        }
+        .section-title p {
+            color: #777;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
