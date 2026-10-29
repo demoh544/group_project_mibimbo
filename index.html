@@ -119,3 +119,124 @@
             font-size: 0.95rem;
             letter-spacing: 1px;
         }
+	        /* PRODUCTS GRID */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #fff;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .product-img {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-img::after {
+            content: 'Подробнее';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .product-card:hover .product-img::after { opacity: 1; }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .product-info .brand {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #c9a96e;
+            text-transform: uppercase;
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 0.5rem 0;
+            color: #1a1a1a;
+        }
+        .product-info .price {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* FEATURES */
+        .features {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .features .section-title h2 { color: #fff; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #c9a96e;
+            margin-bottom: 1rem;
+        }
+        .feature h3 {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .feature p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ABOUT */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+        .about-img {
+            height: 450px;
+            background: url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800') center/cover;
+        }
