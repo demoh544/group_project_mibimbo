@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — mibombo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">mi<span>bombo</span></a>
+        <button class="burger">☰</button>
+        <nav>
+            <a href="catalog.html">Каталог</a>
+            <a href="features.html">Преимущества</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Наша коллекция</h1>
+        <p>Мебель ручной работы из Италии</p>
+    </div>
+
+    <section>
+        <div class="products" id="productGrid"></div>
+    </section>
+
+    <footer>
+        <a href="index.html" class="logo">mi<span>bombo</span></a>
+        <p>© 2026 mibombo. Итальянская мебель с доставкой по России.</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-img" id="modalImg"></div>
+            <div class="modal-body">
+                <div class="brand" id="modalBrand"></div>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+                <div class="price" id="modalPrice"></div>
+                <button class="btn" onclick="alert('Спасибо! Менеджер свяжется с вами в ближайшее время.')">Заказать</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

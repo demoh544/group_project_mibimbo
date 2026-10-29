@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #faf7f2;
+    color: #2c2c2c;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #c9a96e;
+    text-decoration: none;
+}
+.logo span { color: #fff; font-weight: 600; }
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+}
+nav a:hover, nav a.active { color: #c9a96e; }
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #c9a96e;
+}
+
+/* BURGER MENU (mobile) */
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2.5rem;
+    color: #e8e8e8;
+}
+
+/* PAGE HEADER (внутренние страницы) */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=1600') center/cover;
+    padding: 6rem 5% 4rem;
+    text-align: center;
+    color: #fff;
+}
+.page-header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+.page-header p {
+    color: #ddd;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #c9a96e;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border: 1px solid #c9a96e;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.btn:hover { background: transparent; color: #c9a96e; }
+.btn-outline {
+    background: transparent;
+    color: #c9a96e;
+}
+.btn-outline:hover { background: #c9a96e; color: #fff; }
+
+/* SECTIONS */
+section { padding: 5rem 5%; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+.section-title h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+.section-title .line {
+    width: 60px;
+    height: 2px;
+    background: #c9a96e;
+    margin: 1rem auto;
+}
+.section-title p {
+    color: #777;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+/* PRODUCTS GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+.product-img {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+.product-img::after {
+    content: 'Подробнее';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.product-card:hover .product-img::after { opacity: 1; }
+
+.product-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+.product-info .brand {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #c9a96e;
+    text-transform: uppercase;
+}
+.product-info h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+    color: #1a1a1a;
+}
+.product-info .price {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* FEATURES */
+.features {
+    background: #1a1a1a;
+    color: #fff;
+}
+.features .section-title h2 { color: #fff; }
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: #c9a96e;
+    margin-bottom: 1rem;
+}
+.feature h3 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+.feature p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ABOUT */
+.about-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+.about-text h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+.about-text p {
+    color: #666;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+.about-img {
+    height: 450px;
+    background: url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800') center/cover;
+}
+
+/* CONTACT */
+.contact {
+    background: #f0ebe3;
+}
+.contact-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.contact form {
+    display: grid;
+    gap: 1.2rem;
+}
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.contact input:focus,
+.contact textarea:focus { border-color: #c9a96e; }
+.contact textarea { resize: vertical; min-height: 130px; }
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 2.5rem 5%;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+footer .logo { margin-bottom: 1rem; display: inline-block; }
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+    background: #fff;
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+.modal-img {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+.modal-body {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-body .brand {
+    color: #c9a96e;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+.modal-body h3 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0.5rem 0 1rem;
+}
+.modal-body p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+.modal-body .price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+}
+.modal-close:hover { color: #1a1a1a; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .burger { display: block; }
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #1a1a1a;
+        flex-direction: column;
+        padding: 1rem 5%;
+    }
+    nav.open { display: flex; }
+    nav a { margin: 0.7rem 0; }
+
+    .about-wrap { grid-template-columns: 1fr; }
+    .about-img { height: 300px; order: -1; }
+    .modal { grid-template-columns: 1fr; }
+    .modal-img { min-height: 220px; }
+    .modal-body { padding: 1.5rem; }
+    .hero { height: 70vh; }
+}
