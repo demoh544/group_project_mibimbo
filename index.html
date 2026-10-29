@@ -240,3 +240,182 @@
             height: 450px;
             background: url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800') center/cover;
         }
+/* CONTACT */
+        .contact {
+            background: #f0ebe3;
+        }
+        .contact-wrap {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact form {
+            display: grid;
+            gap: 1.2rem;
+        }
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .contact input:focus,
+        .contact textarea:focus { border-color: #c9a96e; }
+        .contact textarea { resize: vertical; min-height: 130px; }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 2.5rem 5%;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        footer .logo { margin-bottom: 1rem; display: block; }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: #fff;
+            max-width: 800px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-img {
+            min-height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+        .modal-body {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .modal-body .brand {
+            color: #c9a96e;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .modal-body h3 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin: 0.5rem 0 1rem;
+        }
+        .modal-body p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .modal-body .price {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 2;
+        }
+        .modal-close:hover { color: #1a1a1a; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .about-wrap { grid-template-columns: 1fr; }
+            .about-img { height: 300px; order: -1; }
+            .modal { grid-template-columns: 1fr; }
+            .modal-img { min-height: 220px; }
+            .modal-body { padding: 1.5rem; }
+            .hero { height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Bella <span>Casa</span></div>
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#features">Преимущества</a>
+            <a href="#about">О нас</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Итальянские диваны</h1>
+        <p>Роскошь и комфорт в каждой детали</p>
+        <a href="#catalog" class="btn">Смотреть коллекцию</a>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog">
+        <div class="section-title">
+            <h2>Наша коллекция</h2>
+            <div class="line"></div>
+            <p>Мебель ручной работы из Италии</p>
+        </div>
+        <div class="products" id="productGrid"></div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Почему мы</h2>
+            <div class="line"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🇮🇹</div>
+                <h3>100% Италия</h3>
+                <p>Прямые поставки от фабрик Милана и Флоренции</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✋</div>
+                <h3>Ручная работа</h3>
+                <p>Каждый диван создаётся мастерами вручную</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <h3>Натуральные материалы</h3>
+                <p>Итальянская кожа и текстиль премиум-класса</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <h3>Доставка и сборка</h3>
+                <p>Бесплатная доставка и профессиональная сборка</p>
+            </div>
+        </div>
+    </section>
