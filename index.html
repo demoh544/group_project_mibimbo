@@ -419,3 +419,169 @@
             </div>
         </div>
     </section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-wrap">
+            <div class="about-text">
+                <h2>О бренде Bella Casa</h2>
+                <p>Bella Casa — это мост между итальянскими мастерами и ценителями настоящего качества в России. Мы работаем напрямую с семейными фабриками Италии, которые на протяжении поколений создают мебель для лучших домов Европы.</p>
+                <p>Каждый диван в нашей коллекции — это история о традициях, страсти и внимании к деталям. Мы предлагаем только те модели, которые прошли строгий отбор и заслужили признание в мире дизайна.</p>
+                <p>Наша миссия — сделать итальянскую роскошь доступной для вашего дома.</p>
+            </div>
+            <div class="about-img"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Свяжитесь с нами</h2>
+            <div class="line"></div>
+            <p>Оставьте заявку, и мы поможем подобрать идеальный диван</p>
+        </div>
+        <div class="contact-wrap">
+            <form id="contactForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Комментарий или интересующая модель"></textarea>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo">Bella <span>Casa</span></div>
+        <p>© 2026 Bella Casa. Итальянская мебель с доставкой по России.</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-img" id="modalImg"></div>
+            <div class="modal-body">
+                <div class="brand" id="modalBrand"></div>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+                <div class="price" id="modalPrice"></div>
+                <button class="btn" onclick="alert('Спасибо! Менеджер свяжется с вами в ближайшее время.')">Заказать</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Данные о товарах
+        const products = [
+            {
+                name: 'Milano Luxe',
+                brand: 'Bella Vita',
+                price: '285 000 ₽',
+                img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800',
+                desc: 'Трёхместный диван из натуральной итальянской кожи. Каркас из массива бука, наполнитель — гусиный пух. Ручная сборка в Милане.'
+            },
+            {
+                name: 'Firenze Classic',
+                brand: 'Casa Fiorentina',
+                price: '198 000 ₽',
+                img: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800',
+                desc: 'Классический диван с резными деревянными элементами. Обивка из флорентийского бархата, декоративные подушки в комплекте.'
+            },
+            {
+                name: 'Roma Moderno',
+                brand: 'Linea Roma',
+                price: '320 000 ₽',
+                img: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800',
+                desc: 'Современный угловой диван с механизмом трансформации. Обивка — велюр премиум-класса, ортопедическое основание.'
+            },
+            {
+                name: 'Venezia Soft',
+                brand: 'Bella Vita',
+                price: '245 000 ₽',
+                img: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800',
+                desc: 'Двухместный диван с глубокими мягкими сиденьями. Натуральный лён, съёмные чехлы, итальянский дизайн.'
+            },
+            {
+                name: 'Torino Elegance',
+                brand: 'Casa Piemonte',
+                price: '410 000 ₽',
+                img: 'https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=800',
+                desc: 'Диван представительского класса с отделкой из массива ореха и обивкой из кашемира. Лимитированная серия.'
+            },
+            {
+                name: 'Napoli Comfort',
+                brand: 'Linea Roma',
+                price: '175 000 ₽',
+                img: 'https://images.unsplash.com/photo-1540638349517-3abd5afc5847?w=800',
+                desc: 'Компактный диван для небольших пространств. Механизм «еврокнижка», ткань с тефлоновой пропиткой.'
+            }
+        ];
+
+        // Рендер каталога
+        const grid = document.getElementById('productGrid');
+        products.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-img" style="background-image:url('${p.img}')"></div>
+                <div class="product-info">
+                    <div class="brand">${p.brand}</div>
+                    <h3>${p.name}</h3>
+                    <div class="price">${p.price}</div>
+                </div>
+            `;
+            card.addEventListener('click', () => openModal(i));
+            grid.appendChild(card);
+        });
+
+        // Модальное окно
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const modalBrand = document.getElementById('modalBrand');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalPrice = document.getElementById('modalPrice');
+
+        function openModal(index) {
+            const p = products[index];
+            modalImg.style.backgroundImage = `url('${p.img}')`;
+            modalBrand.textContent = p.brand;
+            modalTitle.textContent = p.name;
+            modalDesc.textContent = p.desc;
+            modalPrice.textContent = p.price;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Форма
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Спасибо за заявку! Наш менеджер свяжется с вами в течение 15 минут.');
+            e.target.reset();
+        });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
